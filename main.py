@@ -73,11 +73,9 @@ def format_results(results):
         score = match['score']
         # 将ID和得分格式化为字符串，然后添加到列表中
         formatted_matches.append(f"ID: {match_id}, cosine: {score}")
-    
     # 如果没有找到匹配的项，返回一个提示信息
     if not formatted_matches:
         return "No match found."
-    
     # 将所有格式化后的匹配项连接成一个字符串，每项之间用换行符分隔
     formatted_result = "The five most matching items and their corresponding cosine scores are:\n\n" + "\n\n".join(formatted_matches)
     return formatted_result
