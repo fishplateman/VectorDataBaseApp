@@ -8,12 +8,12 @@ def generate_unique_id():
     return str(uuid.uuid4())
 
 # Pinecone数据库
-pc = Pinecone(api_key="b0f36629-e94a-4349-83a8-b5e8c8c35c4b")
+pc = Pinecone(api_key=st.secrets["pinecone-api-key"])
 index = pc.Index("lei")
 
 st.title("Vector Database Assistant")
 
-client = OpenAI(api_key=st.secrets["api-key"])
+client = OpenAI(api_key=st.secrets["gpt-api-key"])
 
 # embedding算法
 def get_embedding(text, model="text-embedding-ada-002"):
