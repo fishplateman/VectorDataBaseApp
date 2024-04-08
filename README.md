@@ -45,5 +45,17 @@ Submit the rephrased article as a query to see if the Vector Database can identi
 
 The system will return objects along with their corresponding IDs, showcasing the effectiveness of the similarity detection.
 
+## 对比中英输入
+现在我们来使用双语数据集来测试语义识别的能力。我们首先存储一个中文版本的文本再利用英文版本作为查询的输入。并且对比非语义识别SequenceMatcher和Vector Database的识别结果对比。
+首先，我们使用SequenceMatcher对比中英版本，可以看到相似度为0.
+![](pictures/SequenceMatcherResult.png)
+然后我们把中文版的数据插入vector database.
+![](pictures/upsertChineseVersion.png)
+然后我们使用英文版来查询数据。
+![](pictures/queryResult.png)
+可以看到，准确查找到了我们存储的中文版文本，相似度高到0.99.
+
+并且在LLM的帮助下，我们可以使用多国自然语言实现存储和查询的过程。
+![](pictures/naturlanguage.png)
 ## Future Enhancements
 Looking ahead, the integration with MySQL or other database systems could enable users to not only retrieve data IDs but also access the textual content associated with those IDs. This advancement would enrich the application's utility, making it an even more powerful tool for content management and integrity verification.
